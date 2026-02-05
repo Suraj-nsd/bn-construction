@@ -1,16 +1,36 @@
-# React + Vite
+﻿# BN Construction
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern website for BN Construction (Er. Bijendra Nishad) — civil contractor for residential and commercial projects in Gorakhpur, Uttar Pradesh.
 
-Currently, two official plugins are available:
+## Tech Stack
+- React + Vite
+- Tailwind CSS
+- react-icons
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Local Development
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## Production Build
+```bash
+npm run build
+npm run preview
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Deployment (Recommended: Vercel)
+1. Go to https://vercel.com and sign in with GitHub.
+2. Import the repo `suraj-nsd/bn-construction`.
+3. Framework: **Vite** (auto-detected).
+4. Build command: `npm run build`
+5. Output directory: `dist`
+6. Deploy.
 
-## Expanding the ESLint configuration
+## GitHub Pages (Optional)
+If you want GitHub Pages, you will need to set Vite `base` to `/bn-construction/` and add a deploy workflow. I can set this up if needed.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Contact
+- Phone: +91 9956914748 / +91 7985889608
+- Email: bnconstruction2025@gmail.com
+- Location: Patna Chauraha, Ravi Complex Ground Floor, Barhalganj, Gorakhpur (273402)
