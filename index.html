@@ -50,9 +50,20 @@
         }
       }
     </script>
-  </head>
+      <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var redirect = params.get('redirect');
+        if (redirect) {
+          params.delete('redirect');
+          var newPath = redirect + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
+          window.history.replaceState({}, '', '/bn-construction/' + newPath.replace(/^\//, ''));
+        }
+      })();
+    </script>  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
+
