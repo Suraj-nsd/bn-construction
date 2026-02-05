@@ -17,6 +17,13 @@ import { useLang } from '../i18n.jsx';
 export default function Home() {
   const { t, lang, translations } = useLang();
 
+  const baseUrl = import.meta.env.BASE_URL;
+  const projectImages = [
+    `${baseUrl}projects/home-1.jpg`,
+    `${baseUrl}projects/interior-1.jpg`,
+    `${baseUrl}projects/tiles-1.jpg`,
+    `${baseUrl}projects/commercial-1.jpg`,
+  ];
   const serviceIcons = [
     FaDraftingCompass,
     FaHome,
@@ -60,7 +67,7 @@ export default function Home() {
 
   const projects = translations[lang].projects.list.map((item, index) => ({
     ...item,
-    image: ['/projects/home-1.jpg', '/projects/interior-1.jpg', '/projects/tiles-1.jpg', '/projects/commercial-1.jpg'][index],
+    image: projectImages[index],
   }));
 
   return (
@@ -299,4 +306,9 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+
+
 

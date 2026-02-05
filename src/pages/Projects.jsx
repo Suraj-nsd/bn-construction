@@ -1,6 +1,7 @@
 ﻿import { useLang } from '../i18n.jsx'
 
 export default function Projects() {
+  const baseUrl = import.meta.env.BASE_URL
   const { lang } = useLang()
   const projects = [
     {
@@ -8,28 +9,28 @@ export default function Projects() {
       title: lang === 'en' ? 'Modern Family Home' : 'मॉडर्न फैमिली होम',
       category: lang === 'en' ? 'Residential' : 'रेसिडेंशियल',
       description: lang === 'en' ? 'Complete construction with elevation, interiors, and finishing.' : 'एलिवेशन, इंटीरियर और फिनिशिंग सहित पूरा निर्माण।',
-      image: '/projects/home-1.jpg'
+      image: baseUrl + 'projects/home-1.jpg'
     },
     {
       id: 2,
       title: lang === 'en' ? 'Commercial Build' : 'कमर्शियल बिल्ड',
       category: lang === 'en' ? 'Commercial' : 'कमर्शियल',
       description: lang === 'en' ? 'Shops and offices with strong RCC and clean layout.' : 'मजबूत RCC और क्लीन लेआउट के साथ शॉप/ऑफिस।',
-      image: '/projects/commercial-1.jpg'
+      image: baseUrl + 'projects/commercial-1.jpg'
     },
     {
       id: 3,
       title: lang === 'en' ? 'Interior Upgrade' : 'इंटीरियर अपग्रेड',
       category: lang === 'en' ? 'Interior' : 'इंटीरियर',
       description: lang === 'en' ? 'Modern interiors with lighting, paint, and detailing.' : 'लाइटिंग, पेंट और डिटेलिंग के साथ मॉडर्न इंटीरियर।',
-      image: '/projects/interior-1.jpg'
+      image: baseUrl + 'projects/interior-1.jpg'
     },
     {
       id: 4,
       title: lang === 'en' ? 'Tiles & Stone Work' : 'टाइल्स और स्टोन वर्क',
       category: lang === 'en' ? 'Finishing' : 'फिनिशिंग',
       description: lang === 'en' ? 'Durable flooring and stone finishing with premium look.' : 'मजबूत फ्लोरिंग और प्रीमियम स्टोन फिनिशिंग।',
-      image: '/projects/tiles-1.jpg'
+      image: baseUrl + 'projects/tiles-1.jpg'
     }
   ]
 
@@ -74,4 +75,5 @@ export default function Projects() {
     </div>
   )
 }
+
 

@@ -62,21 +62,20 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden mt-4 space-y-3 pb-4">
-            <Link to="/home" className="block text-gray-700 hover:text-red-600 font-medium">{t('nav.home')}</Link>
-            <Link to="/about" className="block text-gray-700 hover:text-red-600 font-medium">{t('nav.about')}</Link>
-            <Link to="/services" className="block text-gray-700 hover:text-red-600 font-medium">{t('nav.services')}</Link>
-            <Link to="/projects" className="block text-gray-700 hover:text-red-600 font-medium">{t('nav.projects')}</Link>
-            <Link to="/testimonials" className="block text-gray-700 hover:text-red-600 font-medium">{t('nav.reviews')}</Link>
-            <a href="tel:+919956914748" className="block text-gray-700 hover:text-red-600 font-medium">{t('labels.callUs')} 9956914748</a>
-            <a href="https://wa.me/919956914748" className="block text-gray-700 hover:text-green-700 font-medium">{t('labels.whatsapp')}</a>
+            <Link to="/home" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-red-600 font-medium">{t('nav.home')}</Link>
+            <Link to="/about" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-red-600 font-medium">{t('nav.about')}</Link>
+            <Link to="/services" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-red-600 font-medium">{t('nav.services')}</Link>
+            <Link to="/projects" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-red-600 font-medium">{t('nav.projects')}</Link>
+            <Link to="/testimonials" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-red-600 font-medium">{t('nav.reviews')}</Link>
+            <a href="tel:+919956914748" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-red-600 font-medium">{t('labels.callUs')} 9956914748</a>
+            <a href="https://wa.me/919956914748" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-green-700 font-medium">{t('labels.whatsapp')}</a>
             <div className="pt-2">
               <LanguageToggle />
             </div>
-            <Link to="/contact" className="block bg-gradient-to-r from-red-600 to-amber-500 text-white px-4 py-2 rounded-lg text-center font-semibold">{t('nav.contact')}</Link>
+            <Link to="/contact" onClick={() => setIsOpen(false)} className="block bg-gradient-to-r from-red-600 to-amber-500 text-white px-4 py-2 rounded-lg text-center font-semibold">{t('nav.contact')}</Link>
           </div>
         )}
       </nav>
     </header>
   )
 }
-
