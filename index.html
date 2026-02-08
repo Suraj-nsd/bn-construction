@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,6 +15,13 @@
     />
     <meta name="theme-color" content="#b91c1c" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Open Graph -->
     <meta property="og:title" content="BN Construction | Civil Contractor in Gorakhpur" />
     <meta
@@ -22,6 +29,7 @@
       content="Residential and commercial construction, interiors, painting, tiles and stone work in Gorakhpur, Uttar Pradesh."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="/projects/home-1.jpg" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -30,6 +38,7 @@
       name="twitter:description"
       content="Residential and commercial construction, interiors, painting, tiles and stone work in Gorakhpur, Uttar Pradesh."
     />
+    <meta name="twitter:image" content="/projects/home-1.jpg" />
 
     <!-- Local Business Schema -->
     <script type="application/ld+json">
@@ -50,20 +59,9 @@
         }
       }
     </script>
-      <script>
-      (function () {
-        var params = new URLSearchParams(window.location.search);
-        var redirect = params.get('redirect');
-        if (redirect) {
-          params.delete('redirect');
-          var newPath = redirect + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
-          window.history.replaceState({}, '', '/bn-construction/' + newPath.replace(/^\//, ''));
-        }
-      })();
-    </script>  </head>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-

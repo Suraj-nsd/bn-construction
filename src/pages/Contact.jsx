@@ -1,5 +1,12 @@
-﻿import { useState } from 'react';
-import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
+import { useState } from 'react';
+import {
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaWhatsapp,
+  FaClock,
+  FaCheckCircle,
+} from 'react-icons/fa';
 import { useLang } from '../i18n.jsx';
 
 export default function Contact() {
@@ -90,20 +97,19 @@ export default function Contact() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-10 md:space-y-14">
       {/* Hero Section */}
-      <section className="relative w-full overflow-hidden bg-gradient-to-r from-red-700 via-red-600 to-amber-500 py-12 md:py-16">
-        <div className="absolute inset-0">
-          <div className="absolute -top-16 -right-10 h-56 w-56 rounded-full bg-amber-400/30 blur-3xl" />
-          <div className="absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-red-900/40 blur-3xl" />
-        </div>
-        <div className="relative container mx-auto px-4 md:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">{t('contact.title')}</h1>
-          <p className="text-lg text-white/90">
+      <section className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-red-900 to-amber-600 py-12 md:py-16">
+        <div className="absolute inset-0 bg-grid opacity-25" />
+        <div className="relative container mx-auto px-4 md:px-8 text-white">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/70">{t('nav.contact')}</p>
+          <h1 className="mt-4 text-4xl md:text-5xl font-bold">{t('contact.title')}</h1>
+          <p className="mt-3 text-lg text-white/90 max-w-2xl">
             {t('contact.subtitle')}
           </p>
-          <p className="mt-2 text-sm text-amber-100/90">
-            {t('hero.hint')}
+          <p className="mt-4 text-sm text-amber-100/90 flex items-center gap-2">
+            <FaClock />
+            {t('contact.responseNote')}
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a
@@ -124,12 +130,11 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Main Container */}
-      <div className="container mx-auto px-4 md:px-8 py-12">
+      <div className="container mx-auto px-4 md:px-8">
         {/* Success Message */}
         {submitted && (
           <div className="mb-8 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-            {lang === 'en' ? 'Thank you! Opening WhatsApp to send your message.' : 'धन्यवाद! आपका संदेश भेजने के लिए WhatsApp खुल रहा है।'}
+            {lang === 'en' ? 'Thank you! Opening WhatsApp to send your message.' : '???????! ???? ????? ????? ?? ??? WhatsApp ??? ??? ???'}
           </div>
         )}
 
@@ -141,7 +146,7 @@ export default function Contact() {
               <a
                 key={index}
                 href={card.href}
-                className={`bg-white p-6 rounded-lg shadow-md border-l-4 ${card.accent} transition hover:-translate-y-1 hover:shadow-lg`}
+                className={`bg-white p-6 rounded-2xl shadow-sm border-l-4 ${card.accent} transition hover:-translate-y-1 hover:shadow-lg`}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-2xl text-red-700">
@@ -157,11 +162,10 @@ export default function Contact() {
           })}
         </div>
 
-        {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {/* Left Side - Address */}
+          {/* Left Side */}
           <div className="space-y-6">
-            <div className="bg-white p-6 md:p-8 rounded-lg shadow-md border-l-4 border-red-600">
+            <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
               <h3 className="text-xl font-bold text-red-600 mb-2">{t('sections.address')}</h3>
               <p className="text-gray-700">
                 {t('home.addressText')}
@@ -174,90 +178,99 @@ export default function Contact() {
                 {t('labels.getDirections')}
               </a>
             </div>
-            <div className="bg-white p-6 md:p-8 rounded-lg shadow-md border-l-4 border-amber-500">
+            <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
               <h3 className="text-xl font-bold text-amber-600 mb-2">{t('contact.servicesTitle')}</h3>
               <p className="text-gray-700">{t('contact.servicesText')}</p>
               <p className="text-gray-700 mt-2">{t('contact.servicesSub')}</p>
             </div>
-            <div className="bg-white p-6 md:p-8 rounded-lg shadow-md border-l-4 border-red-600">
+            <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
               <h3 className="text-xl font-bold text-red-600 mb-2">{t('contact.hoursTitle')}</h3>
               <p className="text-gray-700">Monday - Saturday: 9 AM - 7 PM</p>
               <p className="text-gray-700">Sunday: By Appointment</p>
             </div>
           </div>
 
-          {/* Right Side - Contact Form */}
-          <div className="lg:col-span-2">
-            <div className="bg-white p-6 md:p-8 rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('contact.messageTitle')}</h2>
-              <p className="text-sm text-gray-500 mb-4">
-                {lang === 'en'
-                  ? 'Submitting will open WhatsApp with your details. If blocked, we will open your email app.'
-                  : 'सबमिट करने पर आपका मैसेज WhatsApp में खुलेगा। अगर ब्लॉक हो, तो ईमेल खुलेगा।'}
-              </p>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Right Side */}
+          <div className="lg:col-span-2 space-y-6">
+            <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+              <div className="flex items-center justify-between gap-4 mb-6">
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
-                    {t('contact.name')}
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder={t('contact.name')}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-600"
-                  />
+                  <h2 className="text-2xl font-bold text-gray-900">{t('contact.messageTitle')}</h2>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {t('contact.formNote')}
+                  </p>
+                </div>
+                <span className="hidden md:inline-flex items-center gap-2 rounded-full bg-red-50 px-4 py-2 text-xs font-semibold text-red-700">
+                  <FaCheckCircle />
+                  WhatsApp Preferred
+                </span>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
+                      {t('contact.name')}
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      placeholder={t('contact.name')}
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
+                      {t('contact.email')}
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      placeholder={t('contact.email')}
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-                    {t('contact.email')}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder={t('contact.email')}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-600"
-                  />
-                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="phone" className="block text-gray-700 font-semibold mb-2">
+                      {t('contact.phone')}
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder={t('contact.phone')}
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="phone" className="block text-gray-700 font-semibold mb-2">
-                    {t('contact.phone')}
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder={t('contact.phone')}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-600"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-gray-700 font-semibold mb-2">
-                    {t('contact.subject')}
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    placeholder={t('contact.subject')}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-600"
-                  />
+                  <div>
+                    <label htmlFor="subject" className="block text-gray-700 font-semibold mb-2">
+                      {t('contact.subject')}
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      placeholder={t('contact.subject')}
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -272,7 +285,7 @@ export default function Contact() {
                     required
                     placeholder={t('contact.message')}
                     rows="5"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-600"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
                   ></textarea>
                 </div>
 
@@ -283,6 +296,25 @@ export default function Contact() {
                   {t('contact.send')}
                 </button>
               </form>
+            </div>
+
+            <div className="rounded-2xl border border-gray-100 bg-white p-4 md:p-6 shadow-sm">
+              <div className="flex items-center justify-between gap-4 mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">{t('contact.mapTitle')}</h3>
+                  <p className="text-sm text-gray-600">{t('contact.mapSubtitle')}</p>
+                </div>
+              </div>
+              <div className="overflow-hidden rounded-xl border border-gray-200">
+                <iframe
+                  title="BN Construction Map"
+                  src="https://www.google.com/maps?q=Patna%20Chauraha%20Ravi%20Complex%20Barhalganj%20Gorakhpur&output=embed"
+                  width="100%"
+                  height="320"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
